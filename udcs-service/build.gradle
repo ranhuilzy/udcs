@@ -1,0 +1,5 @@
+apply plugin: 'java'
+bootRepackage.enabled = true
+dependencies {
+    compile project(":udcs-api")
+}

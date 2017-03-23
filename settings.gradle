@@ -1,0 +1,9 @@
+rootProject.name = 'com.udcs'
+include 'udcs-web'
+include 'udcs-ui'
+include 'udcs-api'
+include 'udcs-service'
+rootProject.children.each { childProject ->
+    childProject.name =childProject.name
+}
+

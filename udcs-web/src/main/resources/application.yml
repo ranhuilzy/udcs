@@ -1,0 +1,55 @@
+server:
+  port: 80
+  contextPath: /udcs-web
+  sessionTimeout: 3000
+  tomcat:
+    uriEncoding: UTF-8
+    compression: on
+
+spring:
+  http:
+    encoding:
+      charset: utf8
+      enabled: true
+  thymeleaf:
+      cache: false
+      prefix: classpath:/templates/
+      enabled: true
+      suffix: .htm
+      mode: HTML5
+      encoding: UTF-8
+      content-type: text/html
+  mvc:
+    view:
+      prefix: lasspath:/templates/
+      suffix: .htm
+
+kaptcha:
+  session:
+    key: kaptcha.code
+  border:
+    color: 105,179,90
+  #渲染效果：水纹：WaterRipple；鱼眼：FishEyeGimpy；阴影：ShadowGimpy
+  obscurificator:
+    impl: com.google.code.kaptcha.impl.FishEyeGimpy
+  #不要噪点
+  noise:
+    impl: com.google.code.kaptcha.impl.NoNoise
+  word:
+    impl: com.google.code.kaptcha.text.impl.DefaultWordRenderer
+  image:
+    width: 130
+    height: 40
+  textproducer:
+    font:
+      size: 24
+      color: black
+    char:
+      string: 23456789abcdefghjklmnprstuvwxyzABCDEFGHJKLMPQRSTUVWXYZ
+      length: 6
+      space: 5
+  #和登录框背景颜色一致
+  background:
+    clear:
+      from: 247,247,247
+      to: 247,247,247

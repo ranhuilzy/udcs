@@ -1,0 +1,72 @@
+apply plugin: 'war'
+apply plugin: 'java'
+bootRepackage.enabled = true
+def buildTime = new Date().format("yyyyMMddHHmm")
+def buildDate = new Date().format("yyyyMMdd")
+war {
+    baseName = project.name
+    //baseName = "udcs-web"
+    extension = "zip"
+    version '1.0-SNAPSHOT'
+    classifier = buildTime
+}
+
+configurations {
+    ftpAntTask
+}
+dependencies {
+    compile project(":udcs-api")
+    compile project(":udcs-ui")
+    testCompile "org.springframework.boot:spring-boot-starter-test:${springBootVersion}"
+    compile "com.github.penggle:kaptcha:2.3.2"
+    compile "org.springframework.boot:spring-boot-starter-parent:${springBootVersion}"
+    compile "org.springframework.boot:spring-boot-starter-web:${springBootVersion}"
+    compile "org.springframework.boot:spring-boot-gradle-plugin:${springBootVersion}"
+    compile "org.springframework.boot:spring-boot-starter-thymeleaf:${springBootVersion}"
+    compile "org.springframework.boot:spring-boot-starter-tomcat:${springBootVersion}"
+    compile "org.apache.tomcat.embed:tomcat-embed-jasper:${tomcatJasper}"
+    compile("org.springframework:spring-test:$springVersion",
+    "org.springframework:spring-tx:$springVersion",
+    "org.springframework:spring-web:$springVersion",
+    "org.springframework:spring-webmvc:$springVersion",
+    "org.springframework:spring-webmvc-portlet:$springVersion")
+    compile "javax.servlet:javax.servlet-api:4.0.0-b03"
+    compile "javax.servlet:jstl:1.2"
+    ftpAntTask("org.apache.ant:ant-commons-net:1.8.4") {
+        module("commons-net:commons-net:1.4.1") {
+            dependencies "oro:oro:2.0.8:jar"
+        }
+    }
+}
+
+task ftp(dependsOn: ":${project.name}:war") << {
+    ant {
+        taskdef(name: 'ftp',
+                classname: 'org.apache.tools.ant.taskdefs.optional.net.FTP',
+                classpath: configurations.ftpAntTask.asPath)
+        ftp(action: "mkdir", server: "ftp.msxf.local", userid: "jie.yang", password: "1234qwer", remoteDir: "/public/${buildDate}")
+
+        ftp(server: "ftp.msxf.local", userid: "jie.yang", password: "1234qwer", binary: "true", remoteDir: "/public/${buildDate}") {
+            fileset(dir: "build/libs") {
+                include(name: "*.zip")
+            }
+        }
+        echo(message: "ftp://ftp.msxf.local/public/${buildDate}/bua-${version}-${buildTime}.zip")
+    }
+}
+
+task ftpOnline(dependsOn: ":${project.name}:war") << {
+    ant {
+        taskdef(name: 'ftp',
+                classname: 'org.apache.tools.ant.taskdefs.optional.net.FTP',
+                classpath: configurations.ftpAntTask.asPath)
+        ftp(action: "mkdir", server: "ftp.msxf.local", userid: "jie.yang", password: "1234qwer", remoteDir: "/online/${buildDate}")
+
+        ftp(server: "ftp.msxf.local", userid: "jie.yang", password: "1234qwer", binary: "true", remoteDir: "/online/${buildDate}") {
+            fileset(dir: "build/libs") {
+                include(name: "*.zip")
+            }
+        }
+        echo(message: "ftp://ftp.msxf.local/online/${buildDate}/bua-${version}-${buildTime}.zip")
+    }
+}
