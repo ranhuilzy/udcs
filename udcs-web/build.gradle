@@ -17,8 +17,7 @@ configurations {
 dependencies {
     compile project(":udcs-api")
     compile project(":udcs-ui")
-    testCompile "org.springframework.boot:spring-boot-starter-test:${springBootVersion}"
-    compile "com.github.penggle:kaptcha:2.3.2"
+    compile "org.springframework.boot:spring-boot:${springBootVersion}"
     compile "org.springframework.boot:spring-boot-starter-parent:${springBootVersion}"
     compile "org.springframework.boot:spring-boot-starter-web:${springBootVersion}"
     compile "org.springframework.boot:spring-boot-gradle-plugin:${springBootVersion}"
@@ -30,8 +29,10 @@ dependencies {
     "org.springframework:spring-web:$springVersion",
     "org.springframework:spring-webmvc:$springVersion",
     "org.springframework:spring-webmvc-portlet:$springVersion")
+    compile "com.github.penggle:kaptcha:2.3.2"
     compile "javax.servlet:javax.servlet-api:4.0.0-b03"
     compile "javax.servlet:jstl:1.2"
+    testCompile "org.springframework.boot:spring-boot-starter-test:${springBootVersion}"
     ftpAntTask("org.apache.ant:ant-commons-net:1.8.4") {
         module("commons-net:commons-net:1.4.1") {
             dependencies "oro:oro:2.0.8:jar"
