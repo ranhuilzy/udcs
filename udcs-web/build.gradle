@@ -40,34 +40,34 @@ dependencies {
     }
 }
 
-task ftp(dependsOn: ":${project.name}:war") << {
-    ant {
-        taskdef(name: 'ftp',
-                classname: 'org.apache.tools.ant.taskdefs.optional.net.FTP',
-                classpath: configurations.ftpAntTask.asPath)
-        ftp(action: "mkdir", server: "ftp.msxf.local", userid: "jie.yang", password: "1234qwer", remoteDir: "/public/${buildDate}")
-
-        ftp(server: "ftp.msxf.local", userid: "jie.yang", password: "1234qwer", binary: "true", remoteDir: "/public/${buildDate}") {
-            fileset(dir: "build/libs") {
-                include(name: "*.zip")
-            }
-        }
-        echo(message: "ftp://ftp.msxf.local/public/${buildDate}/bua-${version}-${buildTime}.zip")
-    }
-}
-
-task ftpOnline(dependsOn: ":${project.name}:war") << {
-    ant {
-        taskdef(name: 'ftp',
-                classname: 'org.apache.tools.ant.taskdefs.optional.net.FTP',
-                classpath: configurations.ftpAntTask.asPath)
-        ftp(action: "mkdir", server: "ftp.msxf.local", userid: "jie.yang", password: "1234qwer", remoteDir: "/online/${buildDate}")
-
-        ftp(server: "ftp.msxf.local", userid: "jie.yang", password: "1234qwer", binary: "true", remoteDir: "/online/${buildDate}") {
-            fileset(dir: "build/libs") {
-                include(name: "*.zip")
-            }
-        }
-        echo(message: "ftp://ftp.msxf.local/online/${buildDate}/bua-${version}-${buildTime}.zip")
-    }
-}
+//task ftp(dependsOn: ":${project.name}:war") << {
+//    ant {
+//        taskdef(name: 'ftp',
+//                classname: 'org.apache.tools.ant.taskdefs.optional.net.FTP',
+//                classpath: configurations.ftpAntTask.asPath)
+//        ftp(action: "mkdir", server: "ftp.msxf.local", userid: "jie.yang", password: "1234qwer", remoteDir: "/public/${buildDate}")
+//
+//        ftp(server: "ftp.msxf.local", userid: "jie.yang", password: "1234qwer", binary: "true", remoteDir: "/public/${buildDate}") {
+//            fileset(dir: "build/libs") {
+//                include(name: "*.zip")
+//            }
+//        }
+//        echo(message: "ftp://ftp.msxf.local/public/${buildDate}/bua-${version}-${buildTime}.zip")
+//    }
+//}
+//
+//task ftpOnline(dependsOn: ":${project.name}:war") << {
+//    ant {
+//        taskdef(name: 'ftp',
+//                classname: 'org.apache.tools.ant.taskdefs.optional.net.FTP',
+//                classpath: configurations.ftpAntTask.asPath)
+//        ftp(action: "mkdir", server: "ftp.msxf.local", userid: "jie.yang", password: "1234qwer", remoteDir: "/online/${buildDate}")
+//
+//        ftp(server: "ftp.msxf.local", userid: "jie.yang", password: "1234qwer", binary: "true", remoteDir: "/online/${buildDate}") {
+//            fileset(dir: "build/libs") {
+//                include(name: "*.zip")
+//            }
+//        }
+//        echo(message: "ftp://ftp.msxf.local/online/${buildDate}/bua-${version}-${buildTime}.zip")
+//    }
+//}
