@@ -14,6 +14,7 @@ import org.springframework.util.Assert;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.ResponseBody;
+import org.springframework.web.portlet.ModelAndView;
 
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpSession;
@@ -77,5 +78,12 @@ public class AppUserController {
             model.put("msg","验证码错误");
             return model;
         }
+    }
+    @RequestMapping("/logOut")
+    public String sysLogin(HttpServletRequest request, @RequestParam(value="userName")String userName) throws Exception {
+        ModelAndView modelView= new ModelAndView("redirect:/login");
+        HttpSession session=request.getSession(true);
+        session.invalidate();
+       return  "redirect:/";
     }
 }

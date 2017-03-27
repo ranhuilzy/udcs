@@ -29,6 +29,7 @@ dependencies {
     "org.springframework:spring-web:$springVersion",
     "org.springframework:spring-webmvc:$springVersion",
     "org.springframework:spring-webmvc-portlet:$springVersion")
+    compile "net.sourceforge.nekohtml:nekohtml:1.9.22"
     compile "com.github.penggle:kaptcha:2.3.2"
     compile "javax.servlet:javax.servlet-api:4.0.0-b03"
     compile "javax.servlet:jstl:1.2"

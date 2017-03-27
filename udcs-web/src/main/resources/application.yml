@@ -44,7 +44,7 @@ kaptcha:
   textproducer:
     font:
       size: 24
-      color: black
+      color: green
     char:
       string: 23456789abcdefghjklmnprstuvwxyzABCDEFGHJKLMPQRSTUVWXYZ
       length: 6
@@ -52,5 +52,5 @@ kaptcha:
   #和登录框背景颜色一致
   background:
     clear:
-      from: green
+      from: white
       to: white
