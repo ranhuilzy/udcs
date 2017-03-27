@@ -1,9 +1,5 @@
-apply plugin: 'java'
-bootRepackage.enabled = true
+apply plugin: 'idea'
+apply plugin: 'spring-boot'
 dependencies {
     compile project(":udcs-api")
-    compile group: 'com.alibaba', name: 'druid', version: '${alibaba_druid}'
-    compile group: 'com.github.pagehelper', name: 'pagehelper', version: '${pagehelper_version}'
-    compile group: 'org.mybatis', name: 'mybatis', version: '${mybatis_version}'
-    compile group: 'org.mybatis', name: 'mybatis-spring', version: '${mybatis_spring_version}'
 }

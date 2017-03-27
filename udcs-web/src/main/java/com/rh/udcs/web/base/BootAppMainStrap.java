@@ -4,6 +4,7 @@ import org.springframework.boot.autoconfigure.SpringBootApplication;
 import org.springframework.boot.builder.SpringApplicationBuilder;
 import org.springframework.boot.web.support.SpringBootServletInitializer;
 import org.springframework.context.annotation.Bean;
+import org.springframework.context.annotation.ComponentScan;
 import org.springframework.web.filter.CharacterEncodingFilter;
 
 import javax.servlet.Filter;
@@ -12,7 +13,7 @@ import javax.servlet.Filter;
  * SpringBoot启动实体对象
  * Created by hui.ran on 2017/3/14.
  */
-@SpringBootApplication(scanBasePackages="com.rh.udcs")
+@SpringBootApplication(scanBasePackages = {"com.rh.udcs"})
 public class BootAppMainStrap extends SpringBootServletInitializer {
     @Override
     protected SpringApplicationBuilder configure(SpringApplicationBuilder builder) {

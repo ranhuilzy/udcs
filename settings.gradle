@@ -6,4 +6,3 @@ include 'udcs-service'
 rootProject.children.each { childProject ->
     childProject.name =childProject.name
 }
-

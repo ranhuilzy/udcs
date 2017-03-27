@@ -2,6 +2,7 @@ package com.rh.udcs.web.controllers;
 
 import com.google.code.kaptcha.impl.DefaultKaptcha;
 import com.rh.udcs.beans.SysUserInfoBean;
+import com.rh.udcs.services.SysScheduleManagerService;
 import com.rh.udcs.services.SysUserManagerService;
 import io.spring.gradle.dependencymanagement.org.codehaus.plexus.util.StringUtils;
 import org.slf4j.Logger;
@@ -27,6 +28,10 @@ public class AppUserController {
 
     @Autowired
     private SysUserManagerService userManagerService;
+
+    @Autowired
+    private SysScheduleManagerService scheduleManagerService;
+
 
     @Autowired
     private DefaultKaptcha captchaProducer;

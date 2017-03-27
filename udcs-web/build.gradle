@@ -15,7 +15,7 @@ configurations {
     ftpAntTask
 }
 dependencies {
-    compile project(":udcs-api")
+    compile project(":udcs-service")
     compile project(":udcs-ui")
     compile "org.springframework.boot:spring-boot:${springBootVersion}"
     compile "org.springframework.boot:spring-boot-starter-parent:${springBootVersion}"

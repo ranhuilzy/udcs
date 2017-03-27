@@ -20,7 +20,6 @@ import org.springframework.web.servlet.view.JstlView;
  * Created by hui.ran on 2017/3/14.
  */
 @Configuration
-@ComponentScan(basePackages = "com.rh.udcs.web.controllers")
 public class MvcConfiguration extends WebMvcConfigurerAdapter {
 
     @Autowired

@@ -16,8 +16,8 @@ public class CaptchaConfig {
     @Value("${kaptcha.session.key}")
     private String skey;
 
-//    @Value("${kaptcha.textproducer.font.color}")
-//    private String fcolor;
+    @Value("${kaptcha.textproducer.font.color}")
+    private String fcolor;
 
     @Value("${kaptcha.textproducer.font.size}")
     private String fsize;
@@ -49,20 +49,20 @@ public class CaptchaConfig {
 
     @Value("${kaptcha.background.clear.to}")
     private String to;
-//
-//    @Value("${kaptcha.border.color}")
-//    private String borderColor;
+
+    @Value("${kaptcha.border.color}")
+    private String borderColor;
 
     @Bean(name="captchaProducer")
     public DefaultKaptcha getKaptchaBean(){
         DefaultKaptcha defaultKaptcha=new DefaultKaptcha();
         Properties properties=new Properties();
-//        properties.setProperty("kaptcha.border.color", borderColor);
+        properties.setProperty("kaptcha.border.color", borderColor);
         properties.setProperty("kaptcha.textproducer.font.names", "Arial");
         properties.setProperty("kaptcha.border","no");//无边框
         properties.setProperty("kaptcha.session.key", skey);//session key
         properties.setProperty("kaptcha.textproducer.impl", "com.google.code.kaptcha.text.impl.DefaultTextCreator");
-//        properties.setProperty("kaptcha.textproducer.font.color", fcolor);
+        properties.setProperty("kaptcha.textproducer.font.color", fcolor);
         properties.setProperty("kaptcha.textproducer.font.size", fsize);
         properties.setProperty("kaptcha.obscurificator.impl", obscurificator);
         properties.setProperty("kaptcha.noise.impl", noise);

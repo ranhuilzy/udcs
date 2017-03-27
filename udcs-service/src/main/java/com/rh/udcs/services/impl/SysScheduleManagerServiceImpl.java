@@ -6,6 +6,6 @@ import org.springframework.stereotype.Service;
 /**
  * Created by hui.ran on 2017/3/22.
  */
-@Service("userManagerService")
+@Service("scheduleManagerService")
 public class SysScheduleManagerServiceImpl implements SysScheduleManagerService {
 }
