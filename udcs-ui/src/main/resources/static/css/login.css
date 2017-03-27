@@ -237,8 +237,8 @@ input.Captcha{ width:130px; float:left;}
     position: absolute;
     cursor:pointer;
     top: 161px;
-    right: 130px;
-    width: 80px;
+    right: 5px;
+    width: 130px;
     height: 40px;
     background: #2d2d2d; /* browsers that don't support rgba */
     background: rgba(45,45,45,.25);
