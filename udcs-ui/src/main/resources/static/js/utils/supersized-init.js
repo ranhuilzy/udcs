@@ -18,6 +18,7 @@ jQuery(function($){
         slides             : [    // 幻灯片影像
                                  {image : '/udcs-web/images/1.jpg'},
                                  {image : '/udcs-web/images/2.jpg'},
+                                 {image : '/udcs-web/images/bg.jpg'},
                                  {image : '/udcs-web/images/3.jpg'}
                        ]
 
