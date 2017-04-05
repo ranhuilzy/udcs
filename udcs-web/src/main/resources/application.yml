@@ -62,7 +62,6 @@ kaptcha:
 ##  UAT测试环境：java -jar my-spring-boot.jar --spring.profiles.active=uat1/2/3
 ##  性能测试环境：java -jar my-spring-boot.jar --spring.profiles.active=perf1/2/3
 ##  生产环境：java -jar my-spring-boot.jar --spring.profiles.active=prod
-
 ---
 spring:
   profiles: local
