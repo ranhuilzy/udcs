@@ -54,3 +54,24 @@ kaptcha:
     clear:
       from: white
       to: white
+
+## 默认的profile为dev，其他环境通过指定启动参数使用不同的profile，比如：
+##  开发环境：java -jar my-spring-boot.jar --spring.profiles.active=local
+##  开发环境：java -jar my-spring-boot.jar --spring.profiles.active=dev
+##  测试环境：java -jar my-spring-boot.jar --spring.profiles.active=test1/2/3/4/5/6/7/8/9/10/11/12/13/14
+##  UAT测试环境：java -jar my-spring-boot.jar --spring.profiles.active=uat1/2/3
+##  性能测试环境：java -jar my-spring-boot.jar --spring.profiles.active=perf1/2/3
+##  生产环境：java -jar my-spring-boot.jar --spring.profiles.active=prod
+
+---
+spring:
+  profiles: local
+comConfig:
+  file: classpath:configs/config.properties
+amqConfig:
+  file: classpath:configs/amq_config.properties
+dbsConfig:
+  file: classpath:configs/dbs.properties
+logging:
+  config: classpath:configs/logback.xml
+  path: /home/finance/Logs/udcs
