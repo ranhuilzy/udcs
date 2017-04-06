@@ -30,12 +30,10 @@ configure(subprojects) { project ->
     }
     group = 'com.udcs'
     version '1.0-SNAPSHOT'
+    [compileJava,compileTestJava,javadoc]*.options*.encoding = 'UTF-8'
     configurations {
         all*.exclude group: 'commons-logging', module: 'commons-logging'
     }
-}
-configure(subprojects) {
-    [compileJava,compileTestJava,javadoc]*.options*.encoding = 'UTF-8'
     dependencies {
         compile "com.alibaba:druid:${alibaba_druid}"
         compile "com.github.pagehelper:pagehelper:${pagehelper_version}"
