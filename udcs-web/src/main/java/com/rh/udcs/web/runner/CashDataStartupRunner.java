@@ -9,7 +9,7 @@ import org.springframework.stereotype.Component;
  * Created by hui.ran on 2017/3/22.
  */
 @Component
-@Order(value=10)
+@Order(value=1)
 public class CashDataStartupRunner implements CommandLineRunner {
     protected  final static Logger logger= LoggerFactory.getLogger(CashDataStartupRunner.class);
     /**
