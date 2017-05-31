@@ -1,9 +1,9 @@
 buildscript {
     repositories {
         mavenLocal()
-        maven { url msxfRepo }
-        maven { url msxfMvnUrl}
+        maven { url anxinMvnUrl}
         maven { url mvnrepositoryUrl}
+        maven { url milestoneUrl}
     }
     dependencies {
         classpath "org.springframework.boot:spring-boot-gradle-plugin:${springBootVersion}"
@@ -24,9 +24,9 @@ configurations.all {
 configure(subprojects) { project ->
     repositories{
         mavenLocal()
-        maven { url msxfRepo }
-        maven { url msxfMvnUrl}
+        maven { url anxinMvnUrl}
         maven { url mvnrepositoryUrl}
+        maven { url milestoneUrl}
     }
     group = 'com.udcs'
     version '1.0-SNAPSHOT'
